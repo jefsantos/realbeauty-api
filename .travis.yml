@@ -3,3 +3,10 @@ jdk:
   - openjdk8
 before_install:
   - chmod +x mvnw
+
+addons:
+  apt:
+    packages:
+      - rabbitmq-server
+services:
+  - rabbitmq
