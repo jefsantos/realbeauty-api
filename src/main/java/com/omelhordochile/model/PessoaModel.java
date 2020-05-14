@@ -27,8 +27,8 @@ public class PessoaModel {
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "senha")
-	private String senha;
+	@Column(name = "senha", nullable = false)
+	private String  senha;
 	
 	@Column(name = "Telefone_Whatsapp")
 	private String whatsapp;

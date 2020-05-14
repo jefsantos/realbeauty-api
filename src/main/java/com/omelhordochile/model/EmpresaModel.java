@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class EmpresaModel implements Serializable {
 	String nome;
 
 
-	@OneToMany(mappedBy = "empresaModel")
+	@OneToMany(mappedBy = "empresaModel", cascade = CascadeType.ALL)
 	private List<CarroModel> carros = new ArrayList<>(); 
 
 	public EmpresaModel() {

@@ -1,4 +1,4 @@
-package com.realbeauty.security;
+package com.omelhordochile.utils;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,5 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .jee()
                 .mappableRoles("ROLE_USER","ROLE_ADMIN");
+        
     }
 }
