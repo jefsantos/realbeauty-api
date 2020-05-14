@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +18,12 @@ import com.omelhordochile.model.ResponseModel;
 import com.omelhordochile.repository.PessoaRepository;
  
 
- 
+@CrossOrigin
 @RestController
 @RequestMapping("/service")
 public class PessoaService {
- 
+	
+
 	@Autowired
 	private PessoaRepository pessoaRepository; 
  
@@ -29,12 +32,16 @@ public class PessoaService {
 	 * @param pessoa
 	 * @return
 	 */
+	
+	@CrossOrigin
 	@RequestMapping(value="/pessoa", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel salvar(@RequestBody PessoaModel pessoa){
  
  
 		try {
- 
+			
+
+			 
 			this.pessoaRepository.save(pessoa);
  
 			return new ResponseModel(1,"Registro salvo com sucesso!");
@@ -45,11 +52,15 @@ public class PessoaService {
 		}
 	}
  
+
+	
+	
 	/**
 	 * ATUALIZAR O REGISTRO DE UMA PESSOA
 	 * @param pessoa
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(value="/pessoa", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel atualizar(@RequestBody PessoaModel pessoa){
  
@@ -69,6 +80,7 @@ public class PessoaService {
 	 * CONSULTAR TODAS AS PESSOAS
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(value="/pessoa", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	ResponseEntity<Object> consultar(){
 		

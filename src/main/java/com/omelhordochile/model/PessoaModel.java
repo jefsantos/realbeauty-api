@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.omelhordochile.utils.SenhaUtils;
+
 @Table(name = "tabela_pessoa")
 @Entity
 public class PessoaModel {
@@ -62,7 +64,7 @@ public class PessoaModel {
 	
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senha = SenhaUtils.gerarBCrypt(senha);
 	}
 	public String getWhatsapp() {
 		return whatsapp;
